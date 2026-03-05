@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ingreso a inventario - Supermercado</title>
+  <link rel="stylesheet" href="/CSS/styles.css" />
+</head>
+
+<body>
+  <main class="contenedor-formulario">
+
+    <header class="form-header">
+      <div>
+        <h1>Ingreso de productos al inventario</h1>
+        <p>Registro para inventario (cantidades, lote y caducidad si aplica).</p>
+      </div>
+    </header>
+
+    <form action="#" method="post" autocomplete="off">
+
+      <fieldset>
+        <legend>Identificación del producto</legend>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="codigo-barras">
+              Código de barras <span class="requerido">*</span>
+            </label>
+            <input type="text" id="codigo-barras" name="codigo_barras" required
+                   pattern="\d{8,13}" maxlength="13" placeholder="Ej. 7501031311309" />
+            <span class="texto-ayuda">Solo números (8 a 13 dígitos).</span>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="nombre-prod">
+              Nombre <span class="requerido">*</span>
+            </label>
+            <input type="text" id="nombre-prod" name="nombre" required minlength="2" maxlength="80"
+                   placeholder="Ej. Arroz 1kg" />
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="tipo">
+              Tipo <span class="requerido">*</span>
+            </label>
+            <select id="tipo" name="tipo" required>
+              <option value="">-- Seleccione --</option>
+              <option value="abarrotes">Abarrotes</option>
+              <option value="lacteos">Lácteos</option>
+              <option value="carnes">Carnes</option>
+              <option value="bebidas">Bebidas</option>
+              <option value="limpieza">Limpieza</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="proveedor">Proveedor</label>
+            <input type="text" id="proveedor" name="proveedor" maxlength="60" placeholder="Ej. Distribuidora XYZ" />
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Ingreso y almacenamiento</legend>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="cantidad">
+              Cantidad a ingresar <span class="requerido">*</span>
+            </label>
+            <input type="number" id="cantidad" name="cantidad" required min="1" max="99999" placeholder="Ej. 24" />
+          </div>
+
+          <div class="campo-grupo">
+            <label for="unidad">
+              Unidad <span class="requerido">*</span>
+            </label>
+            <select id="unidad" name="unidad" required>
+              <option value="">-- Seleccione --</option>
+              <option value="unidades">Unidades</option>
+              <option value="cajas">Cajas</option>
+              <option value="kg">Kilogramos (kg)</option>
+              <option value="litros">Litros (L)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="pasillo">
+              Ubicación (pasillo) <span class="requerido">*</span>
+            </label>
+            <input type="text" id="pasillo" name="pasillo" required maxlength="10"
+                   pattern="[A-Za-z0-9\-]{1,10}" placeholder="Ej. A-3" />
+            <span class="texto-ayuda">Ejemplo: A-3, B-1, Bodega-2.</span>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="fecha-ingreso">
+              Fecha de ingreso <span class="requerido">*</span>
+            </label>
+            <input type="date" id="fecha-ingreso" name="fecha_ingreso" required />
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="lote">Número de lote</label>
+            <input type="text" id="lote" name="lote" maxlength="25" placeholder="Ej. LOTE-2026-03" />
+          </div>
+
+          <div class="campo-grupo">
+            <label for="caducidad">Fecha de caducidad</label>
+            <input type="date" id="caducidad" name="caducidad" />
+            <span class="texto-ayuda">Opcional (solo si aplica).</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Observaciones</legend>
+
+        <div class="campo-grupo">
+          <label for="obs">Observaciones</label>
+          <textarea id="obs" name="observaciones" rows="3" maxlength="300"
+                    placeholder="Ej. Producto llegó con empaque en buen estado..."></textarea>
+        </div>
+
+        <div class="campo-grupo">
+          <label class="opcion-item">
+            <input type="checkbox" name="verificado" value="si" required />
+            Confirmo que la cantidad ingresada fue verificada.
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="seccion-botones">
+        <button type="reset" class="btn btn-secundario">Limpiar</button>
+        <button type="submit" class="btn btn-primario">Registrar inventario</button>
+      </div>
+    </form>
+
+    <footer class="form-footer">
+      <p>Funciones sugeridas: alertas por caducidad, control de stock mínimo, historial por lote, lectura con escáner de barras, validación de ubicación.</p>
+    </footer>
+
+  </main>
+</body>
+</html>

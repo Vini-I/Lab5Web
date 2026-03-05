@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recepción de equipos - Taller de cómputo</title>
+  <link rel="stylesheet" href="/CSS/styles.css" />
+</head>
+
+<body>
+  <main class="contenedor-formulario">
+
+    <header class="form-header">
+      <div>
+        <h1>Recepción de equipos</h1>
+        <p>Ingreso de equipo para diagnóstico o reparación.</p>
+      </div>
+    </header>
+
+    <form action="#" method="post" autocomplete="off">
+
+      <fieldset>
+        <legend>Datos del cliente</legend>
+
+        <div class="campo-grupo">
+          <label for="cliente">
+            Nombre completo <span class="requerido">*</span>
+          </label>
+          <input type="text" id="cliente" name="cliente" required minlength="5" maxlength="100"
+                 placeholder="Ej. Juan Pérez Mora" autocomplete="name" />
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="correo">
+              Correo <span class="requerido">*</span>
+            </label>
+            <input type="email" id="correo" name="correo" required maxlength="120"
+                   placeholder="cliente@correo.com" autocomplete="email" />
+          </div>
+
+          <div class="campo-grupo">
+            <label for="telefono">
+              Teléfono <span class="requerido">*</span>
+            </label>
+            <input type="tel" id="telefono" name="telefono" required
+                   pattern="\d{4}-\d{4}" maxlength="9" placeholder="8888-8888" />
+            <span class="texto-ayuda">Formato: ####-####</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Información del equipo</legend>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="tipo-equipo">
+              Tipo de equipo <span class="requerido">*</span>
+            </label>
+            <select id="tipo-equipo" name="tipo_equipo" required>
+              <option value="">-- Seleccione --</option>
+              <option value="laptop">Laptop</option>
+              <option value="desktop">PC de escritorio</option>
+              <option value="impresora">Impresora</option>
+              <option value="tablet">Tablet</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="marca-modelo">Marca / Modelo</label>
+            <input type="text" id="marca-modelo" name="marca_modelo" maxlength="60"
+                   placeholder="Ej. HP Pavilion 15" />
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="serie">
+              Número de serie <span class="requerido">*</span>
+            </label>
+            <input type="text" id="serie" name="serie" required maxlength="30"
+                   pattern="[A-Za-z0-9\-]{5,30}" placeholder="Ej. SN-AB12CD34" />
+            <span class="texto-ayuda">Sin espacios. Guiones permitidos.</span>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="fecha-recepcion">
+              Fecha de recepción <span class="requerido">*</span>
+            </label>
+            <input type="date" id="fecha-recepcion" name="fecha_recepcion" required />
+          </div>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="accesorios">Accesorios entregados</label>
+          <div class="campo-grupo">
+            <label class="opcion-item"><input type="checkbox" name="accesorios" value="cargador" /> Cargador</label>
+            <label class="opcion-item"><input type="checkbox" name="accesorios" value="mouse" /> Mouse</label>
+            <label class="opcion-item"><input type="checkbox" name="accesorios" value="bolso" /> Bolso/estuche</label>
+            <label class="opcion-item"><input type="checkbox" name="accesorios" value="otro" /> Otro</label>
+          </div>
+          <span class="texto-ayuda">Marque lo que el cliente dejó junto al equipo.</span>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Falla reportada y autorización</legend>
+
+        <div class="campo-grupo">
+          <label for="problema">
+            Descripción del problema <span class="requerido">*</span>
+          </label>
+          <textarea id="problema" name="problema" rows="4" required minlength="10" maxlength="400"
+                    placeholder="Ej. No enciende, hace pitidos, se apaga sola..."></textarea>
+          <span class="texto-ayuda">Entre 10 y 400 caracteres.</span>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="prioridad">Prioridad</label>
+            <select id="prioridad" name="prioridad">
+              <option value="normal" selected>Normal</option>
+              <option value="alta">Alta</option>
+              <option value="urgente">Urgente</option>
+            </select>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="costo-aprox">Costo aproximado (₡)</label>
+            <input type="number" id="costo-aprox" name="costo_aprox" min="0" max="9999999" placeholder="Ej. 15000" />
+            <span class="texto-ayuda">Opcional (si ya se estimó).</span>
+          </div>
+        </div>
+
+        <div class="campo-grupo">
+          <label class="opcion-item">
+            <input type="checkbox" name="autoriza" value="si" required />
+            Autorizo el diagnóstico y me contactarán antes de cualquier reparación.
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="seccion-botones">
+        <button type="reset" class="btn btn-secundario">Limpiar</button>
+        <button type="submit" class="btn btn-primario">Registrar recepción</button>
+      </div>
+    </form>
+
+    <footer class="form-footer">
+      <p>Funciones sugeridas: generar boleta/ID, estado del ticket (recibido/en reparación/listo), notificación por correo, checklist de accesorios, historial por número de serie.</p>
+    </footer>
+
+  </main>
+</body>
+</html>

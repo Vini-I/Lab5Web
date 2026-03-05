@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control de cambio de aceite - Flotilla</title>
+  <link rel="stylesheet" href="/CSS/styles.css" />
+</head>
+
+<body>
+  <main class="contenedor-formulario">
+
+    <header class="form-header">
+      <div>
+        <h1>Control de cambios de aceite (Flotilla)</h1>
+        <p>Registro de mantenimiento preventivo por vehículo.</p>
+      </div>
+    </header>
+
+    <form action="#" method="post" autocomplete="off">
+
+      <fieldset>
+        <legend>Identificación del vehículo</legend>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="placa">
+              Placa <span class="requerido">*</span>
+            </label>
+            <input type="text" id="placa" name="placa" required maxlength="10"
+                   pattern="[A-Za-z0-9\-]{3,10}" placeholder="Ej. ABC-123" />
+            <span class="texto-ayuda">Sin espacios. Guiones permitidos.</span>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="unidad">
+              Unidad / Código interno <span class="requerido">*</span>
+            </label>
+            <input type="text" id="unidad" name="unidad" required maxlength="20"
+                   pattern="[A-Za-z0-9\-]{2,20}" placeholder="Ej. FL-07" />
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="marca">Marca</label>
+            <input type="text" id="marca" name="marca" maxlength="30" placeholder="Ej. Toyota" />
+          </div>
+
+          <div class="campo-grupo">
+            <label for="modelo">Modelo</label>
+            <input type="text" id="modelo" name="modelo" maxlength="30" placeholder="Ej. Hilux" />
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Detalle del mantenimiento</legend>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="fecha">
+              Fecha del cambio <span class="requerido">*</span>
+            </label>
+            <input type="date" id="fecha" name="fecha" required />
+          </div>
+
+          <div class="campo-grupo">
+            <label for="km-actual">
+              Kilometraje actual <span class="requerido">*</span>
+            </label>
+            <input type="number" id="km-actual" name="km_actual" required min="0" max="2000000" placeholder="Ej. 125000" />
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="tipo-aceite">
+              Tipo de aceite <span class="requerido">*</span>
+            </label>
+            <select id="tipo-aceite" name="tipo_aceite" required>
+              <option value="">-- Seleccione --</option>
+              <option value="mineral">Mineral</option>
+              <option value="semi">Semisintético</option>
+              <option value="sintetico">Sintético</option>
+            </select>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="viscosidad">Viscosidad</label>
+            <input type="text" id="viscosidad" name="viscosidad" maxlength="10"
+                   pattern="\d{1,2}W-\d{2}" placeholder="Ej. 10W-40" />
+            <span class="texto-ayuda">Formato sugerido: 10W-40, 5W-30.</span>
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="filtro">
+              ¿Se cambió filtro? <span class="requerido">*</span>
+            </label>
+            <select id="filtro" name="cambio_filtro" required>
+              <option value="">-- Seleccione --</option>
+              <option value="si">Sí</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="costo">Costo (₡)</label>
+            <input type="number" id="costo" name="costo" min="0" max="9999999" placeholder="Ej. 25000" />
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Próximo cambio y responsable</legend>
+
+        <div class="fila-doble">
+          <div class="campo-grupo">
+            <label for="km-proximo">
+              Kilometraje próximo cambio <span class="requerido">*</span>
+            </label>
+            <input type="number" id="km-proximo" name="km_proximo" required min="0" max="2000000"
+                   placeholder="Ej. 130000" />
+            <span class="texto-ayuda">Normalmente se programa cada 5,000 a 10,000 km.</span>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="responsable">
+              Responsable <span class="requerido">*</span>
+            </label>
+            <input type="text" id="responsable" name="responsable" required maxlength="80"
+                   placeholder="Ej. Taller Central / Encargado" />
+          </div>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="notas">Notas</label>
+          <textarea id="notas" name="notas" rows="3" maxlength="300"
+                    placeholder="Ej. Se revisó nivel de refrigerante, se detectó fuga leve..."></textarea>
+        </div>
+
+        <div class="campo-grupo">
+          <label class="opcion-item">
+            <input type="checkbox" name="confirmo" value="si" required />
+            Confirmo que los datos del mantenimiento son correctos.
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="seccion-botones">
+        <button type="reset" class="btn btn-secundario">Limpiar</button>
+        <button type="submit" class="btn btn-primario">Guardar registro</button>
+      </div>
+    </form>
+
+    <footer class="form-footer">
+      <p>Funciones sugeridas: alertas automáticas por km/fecha, historial por placa, cálculo de próximo cambio, reporte de costos mensuales, validación km (próximo &gt; actual).</p>
+    </footer>
+
+  </main>
+</body>
+</html>
