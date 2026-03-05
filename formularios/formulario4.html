@@ -1,0 +1,142 @@
+<!-- FORMULARIO 4: PAGO PARA COMPRAS EN LÍNEA -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Seguro - Tienda Online</title>
+</head>
+<body>
+    <main>
+        <h1>Finalizar Compra</h1>
+        
+        <form action="/procesar-pago" method="POST">
+            <fieldset>
+                <legend>Resumen de tu Compra</legend>
+
+                <div>
+                    <p>Subtotal: $99.99</p>
+                    <p>Envío Estándar: Gratis</p>
+                    <p>Impuestos (10%): $10.00</p>
+                    <p><strong>Total a pagar: $109.99</strong></p>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos de Facturación</legend>
+
+                <div>
+                    <label for="nombre-factura">Nombre Completo:</label>
+                    <input type="text" id="nombre-factura" name="nombre_factura" required>
+                </div>
+
+                <div>
+                    <label for="email-factura">Correo Electrónico:</label>
+                    <input type="email" id="email-factura" name="email_factura" required>
+                </div>
+
+                <div>
+                    <label for="telefono-factura">Teléfono:</label>
+                    <input type="tel" id="telefono-factura" name="telefono_factura" required>
+                </div>
+
+                <div>
+                    <label for="direccion">Dirección de Envío:</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                </div>
+
+                <div>
+                    <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad" name="ciudad" required>
+                </div>
+
+                <div>
+                    <label for="codigo-postal">Código Postal:</label>
+                    <input type="text" id="codigo-postal" name="codigo_postal" required>
+                </div>
+
+                <div>
+                    <label for="pais">País:</label>
+                    <select id="pais" name="pais" required>
+                        <option value="">-- Selecciona un país --</option>
+                        <option value="mexico">México</option>
+                        <option value="colombia">Colombia</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="españa">España</option>
+                        <option value="chile">Chile</option>
+                        <option value="perú">Perú</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Método de Pago</legend>
+
+                <div>
+                    <label for="metodo-pago">Selecciona tu método de pago:</label>
+                    <select id="metodo-pago" name="metodo_pago" required>
+                        <option value="">-- Selecciona un método --</option>
+                        <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="transferencia">Transferencia Bancaria</option>
+                        <option value="billetera">Billetera Digital</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="numero-tarjeta">Número de Tarjeta:</label>
+                    <input type="text" id="numero-tarjeta" name="numero_tarjeta" 
+                           placeholder="1234 5678 9012 3456" 
+                           pattern="[0-9 ]{16,19}" required>
+                </div>
+
+                <div>
+                    <label for="nombre-tarjeta">Titular de la Tarjeta:</label>
+                    <input type="text" id="nombre-tarjeta" name="nombre_tarjeta" required>
+                </div>
+
+                <div>
+                    <label for="mes-expiracion">Mes/Año de Expiración:</label>
+                    <input type="month" id="mes-expiracion" name="mes_expiracion" required>
+                </div>
+
+                <div>
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" 
+                           placeholder="123" 
+                           pattern="[0-9]{3,4}" 
+                           maxlength="4" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Confirmación</legend>
+
+                <div>
+                    <label for="aceptar">
+                        <input type="checkbox" id="aceptar" name="aceptar" required> 
+                        Acepto los términos y condiciones de compra
+                    </label>
+                </div>
+
+                <div>
+                    <label for="privacidad">
+                        <input type="checkbox" id="privacidad" name="privacidad" required> 
+                        He leído la política de privacidad
+                    </label>
+                </div>
+
+                <div>
+                    <label for="newsletter">
+                        <input type="checkbox" id="newsletter" name="newsletter"> 
+                        Deseo recibir promociones y ofertas especiales
+                    </label>
+                </div>
+            </fieldset>
+
+            <button type="submit">Procesar Pago de $109.99</button>
+            <button type="reset">Limpiar Formulario</button>
+        </form>
+    </main>
+</body>
+</html>

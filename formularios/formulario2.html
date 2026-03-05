@@ -1,0 +1,110 @@
+<!-- FORMULARIO 2: PERSONA BUSCADA POR DELITO -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Persona Buscada</title>
+</head>
+<body>
+    <main>
+        <h1>Sistema de Reporte Policial</h1>
+        
+        <form action="/reportar-persona" method="POST">
+            <fieldset>
+                <legend>Datos Personales del Sospechoso</legend>
+
+                <div>
+                    <label for="nombre-completo">Nombre Completo:</label>
+                    <input type="text" id="nombre-completo" name="nombre_completo" required>
+                </div>
+
+                <div>
+                    <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" id="fecha-nacimiento" name="fecha_nacimiento" required>
+                </div>
+
+                <div>
+                    <label for="genero">Género:</label>
+                    <select id="genero" name="genero" required>
+                        <option value="">-- Selecciona --</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="altura">Altura (cm):</label>
+                    <input type="number" id="altura" name="altura" min="100" max="250">
+                </div>
+
+                <div>
+                    <label for="caracteristicas">Características Especiales:</label>
+                    <textarea id="caracteristicas" name="caracteristicas" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Información del Delito</legend>
+
+                <div>
+                    <label for="tipo-delito">Tipo de Delito:</label>
+                    <select id="tipo-delito" name="tipo_delito" required>
+                        <option value="">-- Selecciona --</option>
+                        <option value="robo">Robo</option>
+                        <option value="fraude">Fraude</option>
+                        <option value="violencia">Violencia</option>
+                        <option value="secuestro">Secuestro</option>
+                        <option value="tráfico">Tráfico de Drogas</option>
+                        <option value="homicidio">Homicidio</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="fecha-delito">Fecha del Delito:</label>
+                    <input type="date" id="fecha-delito" name="fecha_delito" required>
+                </div>
+
+                <div>
+                    <label for="descripcion">Descripción del Delito:</label>
+                    <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
+                </div>
+
+                <div>
+                    <label for="ubicacion">Última ubicación conocida:</label>
+                    <input type="text" id="ubicacion" name="ubicacion">
+                </div>
+
+                <div>
+                    <label for="numero-denuncia">Número de Denuncia (si existe):</label>
+                    <input type="text" id="numero-denuncia" name="numero_denuncia">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos de Quien Reporta</legend>
+
+                <div>
+                    <label for="nombre-reportante">Tu Nombre:</label>
+                    <input type="text" id="nombre-reportante" name="nombre_reportante">
+                </div>
+
+                <div>
+                    <label for="email-reportante">Tu Email:</label>
+                    <input type="email" id="email-reportante" name="email_reportante">
+                </div>
+
+                <div>
+                    <label for="telefono-reportante">Tu Teléfono:</label>
+                    <input type="tel" id="telefono-reportante" name="telefono_reportante">
+                </div>
+            </fieldset>
+
+            <button type="submit">Reportar Persona</button>
+            <button type="reset">Limpiar Formulario</button>
+        </form>
+    </main>
+</body>
+</html>
