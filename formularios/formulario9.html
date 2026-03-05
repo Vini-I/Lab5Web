@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca – Préstamo de Libros</title>
+    <link rel="stylesheet" href="/Lab5Web/CSS/styles.css" />
+    <style>
+        :root {
+            --color-primario: #3d2b1f;
+            --color-acento: #c0832a;
+        }
+
+        header.form-header {
+            background: linear-gradient(135deg, #3d2b1f, #6b4423);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="contenedor-formulario">
+
+        <header class="form-header">
+            <span class="icono-header" aria-hidden="true">📚</span>
+            <div>
+                <h1>Biblioteca – Préstamo de Libros</h1>
+                <p>Máximo 3 libros por préstamo. Plazo: 15 días naturales.</p>
+            </div>
+        </header>
+
+        <form action="#" method="post" autocomplete="on">
+
+            <fieldset>
+                <legend>🎓 Datos del solicitante</legend>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="nombre-lector">
+                            Nombre completo <span class="requerido">*</span>
+                        </label>
+                        <input type="text" id="nombre-lector" name="nombre_lector" placeholder="Ej. Andrés Solís Mora"
+                            required minlength="5" maxlength="100" autocomplete="name" />
+                    </div>
+                    <div class="campo-grupo">
+                        <label for="cedula-lector">
+                            Número de cédula / carné <span class="requerido">*</span>
+                        </label>
+                        <input type="text" id="cedula-lector" name="cedula" placeholder="1-0234-5678" required
+                            pattern="\d{1}-\d{4}-\d{4}" maxlength="11" />
+                        <span class="texto-ayuda">Formato cédula: #-####-####</span>
+                    </div>
+                </div>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="correo-lector">
+                            Correo electrónico <span class="requerido">*</span>
+                        </label>
+                        <input type="email" id="correo-lector" name="correo" placeholder="correo@universidad.ac.cr"
+                            required autocomplete="email" />
+                        <span class="texto-ayuda">Se enviará aviso de vencimiento aquí.</span>
+                    </div>
+                    <div class="campo-grupo">
+                        <label for="tel-lector">Teléfono</label>
+                        <input type="tel" id="tel-lector" name="telefono" placeholder="8888-8888" pattern="\d{4}-\d{4}"
+                            maxlength="9" autocomplete="tel" />
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="tipo-usuario">
+                        Tipo de usuario <span class="requerido">*</span>
+                    </label>
+                    <select id="tipo-usuario" name="tipo_usuario" required>
+                        <option value="">-- Seleccione --</option>
+                        <option value="estudiante">Estudiante</option>
+                        <option value="docente">Docente</option>
+                        <option value="administrativo">Personal Administrativo</option>
+                        <option value="externo">Usuario Externo</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>📖 Libro #1 <span class="requerido">*</span></legend>
+
+                <div class="campo-grupo">
+                    <label for="isbn1">Código ISBN / Código de barras</label>
+
+                    <input type="text" id="isbn1" name="isbn1" placeholder="Ej. 9780141441146" pattern="\d{10}|\d{13}"
+                        maxlength="13" />
+                    <span class="texto-ayuda">ISBN-10 (10 dígitos) o ISBN-13 (13 dígitos).</span>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="titulo1">
+                        Título del libro <span class="requerido">*</span>
+                    </label>
+                    <input type="text" id="titulo1" name="titulo1" placeholder="Ej. Don Quijote de la Mancha" required
+                        maxlength="200" />
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="autor1">Autor</label>
+                    <input type="text" id="autor1" name="autor1" placeholder="Ej. Miguel de Cervantes"
+                        maxlength="100" />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>📖 Libro #2 (opcional)</legend>
+
+                <div class="campo-grupo">
+                    <label for="isbn2">Código ISBN / Código de barras</label>
+                    <input type="text" id="isbn2" name="isbn2" placeholder="Ej. 9780141441146" pattern="\d{10}|\d{13}"
+                        maxlength="13" />
+                </div>
+                <div class="campo-grupo">
+                    <label for="titulo2">Título del libro</label>
+                    <input type="text" id="titulo2" name="titulo2" placeholder="Título" maxlength="200" />
+                </div>
+                <div class="campo-grupo">
+                    <label for="autor2">Autor</label>
+                    <input type="text" id="autor2" name="autor2" placeholder="Autor" maxlength="100" />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>📖 Libro #3 (opcional)</legend>
+
+                <div class="campo-grupo">
+                    <label for="isbn3">Código ISBN / Código de barras</label>
+                    <input type="text" id="isbn3" name="isbn3" placeholder="Ej. 9780141441146" pattern="\d{10}|\d{13}"
+                        maxlength="13" />
+                </div>
+                <div class="campo-grupo">
+                    <label for="titulo3">Título del libro</label>
+                    <input type="text" id="titulo3" name="titulo3" placeholder="Título" maxlength="200" />
+                </div>
+                <div class="campo-grupo">
+                    <label for="autor3">Autor</label>
+                    <input type="text" id="autor3" name="autor3" placeholder="Autor" maxlength="100" />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>📅 Datos del préstamo</legend>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="fecha-prestamo">
+                            Fecha de préstamo <span class="requerido">*</span>
+                        </label>
+                        <input type="date" id="fecha-prestamo" name="fecha_prestamo" required />
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="fecha-devolucion">
+                            Fecha de devolución <span class="requerido">*</span>
+                        </label>
+                        <input type="date" id="fecha-devolucion" name="fecha_devolucion" required />
+                        <span class="texto-ayuda">Máximo 15 días desde hoy.</span>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="modalidad">
+                        Modalidad <span class="requerido">*</span>
+                    </label>
+                    <select id="modalidad" name="modalidad" required>
+                        <option value="">-- Seleccione --</option>
+                        <option value="sala">Uso en sala</option>
+                        <option value="domicilio">Préstamo a domicilio</option>
+                        <option value="digital">Solicitar versión digital</option>
+                    </select>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="observaciones">Observaciones</label>
+                    <textarea id="observaciones" name="observaciones" rows="2"
+                        placeholder="Ej. Libro para tesis de grado..." maxlength="300"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>📝 Compromiso del lector</legend>
+                <div class="campo-grupo">
+                    <label class="opcion-item">
+                        <input type="checkbox" name="acepta_terminos" value="si" required />
+                        Me comprometo a devolver los materiales en el plazo acordado y en buen estado.
+                    </label>
+                </div>
+                <div class="campo-grupo">
+                    <label class="opcion-item">
+                        <input type="checkbox" name="acepta_multa" value="si" required />
+                        Entiendo que atrasos generan una multa de ₡200 por libro por día.
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="seccion-botones">
+                <button type="reset" class="btn btn-secundario">Limpiar</button>
+                <button type="submit" class="btn btn-primario">Registrar Préstamo</button>
+            </div>
+
+        </form>
+
+        <footer class="form-footer">
+            <p>Biblioteca UTN Sede Guanacaste · Lunes a Viernes 8am–5pm</p>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Contacto</title>
+    <link rel="stylesheet" href="/Lab5Web//CSS/styles.css" />
+    <style>
+        :root {
+            --color-primario: #0d6e6e;
+            --color-acento: #f5a623;
+        }
+
+        header.form-header {
+            background: linear-gradient(135deg, #0d6e6e, #09a89c);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="contenedor-formulario">
+
+        <header class="form-header">
+            <div>
+                <h1>Contáctenos</h1>
+                <p>Responderemos en un máximo de 48 horas hábiles.</p>
+            </div>
+        </header>
+
+        <form action="#" method="post" autocomplete="on">
+            <fieldset>
+                <legend>👤 Sus datos</legend>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="nombre">
+                            Nombre <span class="requerido">*</span>
+                        </label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Carlos" required minlength="2"
+                            maxlength="60" autocomplete="given-name" />
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="apellido">
+                            Apellido <span class="requerido">*</span>
+                        </label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Ej. Pérez" required minlength="2"
+                            maxlength="60" autocomplete="family-name" />
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="correo-contacto">
+                        Correo electrónico <span class="requerido">*</span>
+                    </label>
+                    <input type="email" id="correo-contacto" name="correo" placeholder="nombre@correo.com" required
+                        autocomplete="email" />
+                    <span class="texto-ayuda">Le enviaremos la respuesta a esta dirección.</span>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="tel-contacto">Teléfono (opcional)</label>
+                    <input type="tel" id="tel-contacto" name="telefono" placeholder="8888-8888" class="ancho-medio"
+                        pattern="\d{4}-\d{4}" />
+                    <span class="texto-ayuda">Solo si prefiere que le llamemos. Formato: ####-####.</span>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Su mensaje</legend>
+
+                <div class="campo-grupo">
+                    <label for="asunto">
+                        Asunto <span class="requerido">*</span>
+                    </label>
+                    <select id="asunto" name="asunto" required>
+                        <option value="">-- Seleccione un asunto --</option>
+                        <optgroup label="Soporte">
+                            <option value="tecnico">Problema técnico</option>
+                            <option value="cuenta">Problema con mi cuenta</option>
+                        </optgroup>
+                        <optgroup label="Consultas">
+                            <option value="precios">Precios y planes</option>
+                            <option value="servicios">Servicios disponibles</option>
+                        </optgroup>
+                        <optgroup label="Otros">
+                            <option value="sugerencia">Sugerencia</option>
+                            <option value="otro">Otro</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="mensaje">
+                        Mensaje <span class="requerido">*</span>
+                    </label>
+                    <textarea id="mensaje" name="mensaje" rows="5"
+                        placeholder="Escriba aquí su consulta o comentario..." required minlength="20"
+                        maxlength="1000"></textarea>
+                    <span class="texto-ayuda">Mínimo 20 caracteres. Máximo 1000.</span>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="adjunto">Adjuntar archivo (opcional)</label>
+                    <input type="file" id="adjunto" name="adjunto" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" />
+                    <span class="texto-ayuda">Formatos aceptados: PDF, JPG, PNG, DOC. Máximo 5 MB.</span>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Preferencias</legend>
+                <div class="campo-grupo">
+                    <label>¿Cómo prefiere que le contactemos? <span class="requerido">*</span></label>
+                    <div class="opciones-grupo" role="group" aria-label="Método de contacto preferido">
+                        <label class="opcion-item">
+                            <input type="radio" name="contacto_preferido" value="correo" required /> Por correo
+                        </label>
+                        <label class="opcion-item">
+                            <input type="radio" name="contacto_preferido" value="telefono" /> Por teléfono
+                        </label>
+                        <label class="opcion-item">
+                            <input type="radio" name="contacto_preferido" value="sin-preferencia" /> Sin preferencia
+                        </label>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label class="opcion-item">
+                        <input type="checkbox" name="newsletter" value="si" />
+                        Deseo recibir boletines y noticias de la empresa.
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="seccion-botones">
+                <button type="reset" class="btn btn-secundario">Limpiar</button>
+                <button type="submit" class="btn btn-primario">Enviar mensaje</button>
+            </div>
+
+        </form>
+
+        <footer class="form-footer">
+            <p>Sus datos son tratados conforme a nuestra Política de Privacidad.</p>
+        </footer>
+
+    </main>
+</body>
+
+</html>

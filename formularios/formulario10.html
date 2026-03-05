@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Paquetes – Correo</title>
+    <link rel="stylesheet" href="/Lab5Web/CSS/styles.css" />
+    <style>
+        :root {
+            --color-primario: #1b4332;
+            --color-acento: #40916c;
+        }
+
+        header.form-header {
+            background: linear-gradient(135deg, #1b4332, #2d6a4f);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="contenedor-formulario">
+
+        <header class="form-header">
+            <span class="icono-header" aria-hidden="true">📦</span>
+            <div>
+                <h1>Registro de Paquetes – Correo de Costa Rica</h1>
+                <p>Complete todos los datos para generar el número de rastreo.</p>
+            </div>
+        </header>
+
+        <form action="#" method="post" autocomplete="on">
+
+            <fieldset>
+                <legend>📤 Datos del remitente (quién envía)</legend>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="nombre-remitente">
+                            Nombre completo <span class="requerido">*</span>
+                        </label>
+                        <input type="text" id="nombre-remitente" name="nombre_remitente"
+                            placeholder="Ej. Juan Pérez Mora" required minlength="5" maxlength="100"
+                            autocomplete="name" />
+                    </div>
+                    <div class="campo-grupo">
+                        <label for="cedula-remitente">
+                            Cédula / ID <span class="requerido">*</span>
+                        </label>
+                        <input type="text" id="cedula-remitente" name="cedula_remitente" placeholder="1-0234-5678"
+                            required pattern="\d{1}-\d{4}-\d{4}" maxlength="11" />
+                        <span class="texto-ayuda">Formato: #-####-####</span>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="dir-remitente">
+                        Dirección de origen <span class="requerido">*</span>
+                    </label>
+                    <textarea id="dir-remitente" name="dir_remitente" rows="2"
+                        placeholder="Provincia, cantón, distrito, señas exactas" required minlength="10" maxlength="300"
+                        autocomplete="street-address"></textarea>
+                </div>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="tel-remitente">
+                            Teléfono <span class="requerido">*</span>
+                        </label>
+                        <input type="tel" id="tel-remitente" name="tel_remitente" placeholder="8888-8888" required
+                            pattern="\d{4}-\d{4}" maxlength="9" autocomplete="tel" />
+                    </div>
+                    <div class="campo-grupo">
+                        <label for="correo-remitente">Correo electrónico</label>
+                        <input type="email" id="correo-remitente" name="correo_remitente"
+                            placeholder="correo@ejemplo.com" autocomplete="email" />
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>📥 Datos del destinatario (quién recibe)</legend>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="nombre-destinatario">
+                            Nombre completo <span class="requerido">*</span>
+                        </label>
+                        <input type="text" id="nombre-destinatario" name="nombre_destinatario"
+                            placeholder="Ej. Ana Rodríguez Chaves" required maxlength="100" />
+                    </div>
+                    <div class="campo-grupo">
+                        <label for="tel-destinatario">
+                            Teléfono <span class="requerido">*</span>
+                        </label>
+                        <input type="tel" id="tel-destinatario" name="tel_destinatario" placeholder="8888-8888" required
+                            pattern="\d{4}-\d{4}" maxlength="9" />
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="dir-destinatario">
+                        Dirección de destino <span class="requerido">*</span>
+                    </label>
+                    <textarea id="dir-destinatario" name="dir_destinatario" rows="2"
+                        placeholder="Provincia, cantón, distrito, señas exactas" required minlength="10"
+                        maxlength="300"></textarea>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="pais-destino">
+                        País de destino <span class="requerido">*</span>
+                    </label>
+                    <select id="pais-destino" name="pais_destino" required>
+                        <option value="">-- Seleccione --</option>
+                        <option value="CR" selected>Costa Rica</option>
+                        <option value="US">Estados Unidos</option>
+                        <option value="MX">México</option>
+                        <option value="GT">Guatemala</option>
+                        <option value="PA">Panamá</option>
+                        <option value="ES">España</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>📦 Características del paquete</legend>
+
+                <div class="campo-grupo">
+                    <label for="tipo-envio">
+                        Tipo de envío <span class="requerido">*</span>
+                    </label>
+                    <select id="tipo-envio" name="tipo_envio" required>
+                        <option value="">-- Seleccione --</option>
+                        <option value="carta">Carta / Documento</option>
+                        <option value="paquete-pequeno">Paquete pequeño (hasta 2 kg)</option>
+                        <option value="paquete-mediano">Paquete mediano (2–10 kg)</option>
+                        <option value="paquete-grande">Paquete grande (+10 kg)</option>
+                        <option value="fragil">Objeto frágil</option>
+                    </select>
+                </div>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="peso">
+                            Peso (kg) <span class="requerido">*</span>
+                        </label>
+                        <input type="number" id="peso" name="peso_kg" placeholder="Ej. 1.5" required min="0.01"
+                            max="999" step="0.01" class="ancho-corto" />
+                        <span class="texto-ayuda">Peso en kilogramos. Ej: 0.5</span>
+                    </div>
+                    <div class="campo-grupo">
+                        <label for="valor-declarado">
+                            Valor declarado (₡) <span class="requerido">*</span>
+                        </label>
+                        <input type="number" id="valor-declarado" name="valor_declarado" placeholder="Ej. 25000"
+                            required min="0" step="1" />
+                        <span class="texto-ayuda">Valor del contenido en colones.</span>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label>Dimensiones (cm) – ancho × alto × profundidad</label>
+                    <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+                        <input type="number" id="ancho" name="dim_ancho" placeholder="Ancho" min="1" max="500"
+                            class="ancho-corto" aria-label="Ancho en centímetros" />
+                        <input type="number" id="alto" name="dim_alto" placeholder="Alto" min="1" max="500"
+                            class="ancho-corto" aria-label="Alto en centímetros" />
+                        <input type="number" id="profundidad" name="dim_prof" placeholder="Profundidad" min="1"
+                            max="500" class="ancho-corto" aria-label="Profundidad en centímetros" />
+                    </div>
+                    <span class="texto-ayuda">Opcional, pero requerido para tarifas especiales.</span>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="contenido">
+                        Descripción del contenido <span class="requerido">*</span>
+                    </label>
+                    <textarea id="contenido" name="contenido" rows="2"
+                        placeholder="Ej. Ropa usada, libros académicos, artículos de cocina" required minlength="5"
+                        maxlength="250"></textarea>
+                </div>
+
+                <div class="campo-grupo">
+                    <label>Características especiales</label>
+                    <div class="opciones-grupo">
+                        <label class="opcion-item">
+                            <input type="checkbox" name="caracteristicas" value="fragil" /> 🔴 Frágil
+                        </label>
+                        <label class="opcion-item">
+                            <input type="checkbox" name="caracteristicas" value="perecedero" /> 🟡 Perecedero
+                        </label>
+                        <label class="opcion-item">
+                            <input type="checkbox" name="caracteristicas" value="liquido" /> 💧 Contiene líquido
+                        </label>
+                        <label class="opcion-item">
+                            <input type="checkbox" name="caracteristicas" value="urgente" /> ⚡ Urgente
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>🚚 Modalidad de envío</legend>
+
+                <div class="campo-grupo">
+                    <label>Tipo de servicio <span class="requerido">*</span></label>
+                    <div class="opciones-grupo">
+                        <label class="opcion-item">
+                            <input type="radio" name="servicio" value="express" required /> ⚡ Express (1–2 días)
+                        </label>
+                        <label class="opcion-item">
+                            <input type="radio" name="servicio" value="estandar" /> 📬 Estándar (3–5 días)
+                        </label>
+                        <label class="opcion-item">
+                            <input type="radio" name="servicio" value="economico" /> 💰 Económico (5–10 días)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="fecha-envio">
+                        Fecha de envío <span class="requerido">*</span>
+                    </label>
+                    <input type="date" id="fecha-envio" name="fecha_envio" required class="ancho-medio" />
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="seguro">
+                        Seguro de envío
+                    </label>
+                    <select id="seguro" name="seguro">
+                        <option value="no">Sin seguro</option>
+                        <option value="basico">Básico (hasta ₡100,000)</option>
+                        <option value="ampliado">Ampliado (hasta ₡500,000)</option>
+                        <option value="total">Total (valor declarado completo)</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>✅ Confirmación</legend>
+                <div class="campo-grupo">
+                    <label class="opcion-item">
+                        <input type="checkbox" name="declara_contenido" value="si" required />
+                        Declaro bajo fe de juramento que el contenido descrito es verídico y no incluye artículos
+                        prohibidos o ilegales.
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="seccion-botones">
+                <button type="reset" class="btn btn-secundario">Limpiar</button>
+                <button type="submit" class="btn btn-primario">Registrar Paquete 📦</button>
+            </div>
+
+        </form>
+
+        <footer class="form-footer">
+            <p>Correo de Costa Rica · Atención al cliente: 2202-2900</p>
+        </footer>
+
+    </main>
+</body>
+
+</html>

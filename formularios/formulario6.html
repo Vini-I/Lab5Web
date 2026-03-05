@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control de Ingreso – Área Restringida</title>
+    <link rel="stylesheet" href="/Lab5Web/CSS/styles.css" />
+
+    <style>
+        :root {
+            --color-primario: #1a1a2e;
+            --color-acento: #e94560;
+        }
+
+        header.form-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="contenedor-formulario">
+
+        <header class="form-header">
+            <div>
+                <h1>Control de Ingreso – Área Restringida</h1>
+                <p>Solo personal autorizado. Todos los accesos son registrados.</p>
+            </div>
+        </header>
+
+        <form action="#" method="post" autocomplete="off">
+
+            <fieldset>
+                <legend>Identificación del visitante</legend>
+
+                <div class="campo-grupo">
+                    <label for="nombre-completo">
+                        Nombre completo <span class="requerido" aria-label="campo requerido">*</span>
+                    </label>
+                    <input type="text" id="nombre-completo" name="nombre_completo"
+                        placeholder="Ej. María González López" required minlength="5" maxlength="100"
+                        autocomplete="name" />
+                    <span class="texto-ayuda">Nombre completo tal como aparece en su identificación.</span>
+                </div>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="tipo-id">
+                            Tipo de identificación <span class="requerido">*</span>
+                        </label>
+                        <select id="tipo-id" name="tipo_id" required>
+                            <option value="">-- Seleccione --</option>
+                            <option value="cedula">Cédula nacional</option>
+                            <option value="dimex">DIMEX</option>
+                            <option value="pasaporte">Pasaporte</option>
+                            <option value="carnet">Carnet institucional</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="numero-id">
+                            Número de identificación <span class="requerido">*</span>
+                        </label>
+
+                        <input type="text" id="numero-id" name="numero_id" placeholder="Ej. 1-0234-5678" required
+                            maxlength="20" pattern="[A-Za-z0-9\-]{5,20}" />
+                        <span class="texto-ayuda">Formato: sin espacios, guiones permitidos.</span>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="correo">
+                        Correo electrónico <span class="requerido">*</span>
+                    </label>
+
+                    <input type="email" id="correo" name="correo" placeholder="usuario@empresa.com" required
+                        maxlength="120" autocomplete="email" />
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="telefono">Teléfono de contacto</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="8888-8888" class="ancho-medio"
+                        pattern="\d{4}-\d{4}" maxlength="9" />
+                    <span class="texto-ayuda">Formato: ####-#### (solo Costa Rica).</span>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos del ingreso</legend>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="area-destino">
+                            Área de destino <span class="requerido">*</span>
+                        </label>
+                        <select id="area-destino" name="area_destino" required>
+                            <option value="">-- Seleccione --</option>
+                            <option value="servidores">Sala de Servidores</option>
+                            <option value="laboratorio">Laboratorio</option>
+                            <option value="bodega">Bodega</option>
+                            <option value="gerencia">Gerencia</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="fecha-ingreso">
+                            Fecha de ingreso <span class="requerido">*</span>
+                        </label>
+                        <input type="date" id="fecha-ingreso" name="fecha_ingreso" required />
+                    </div>
+                </div>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="hora-entrada">
+                            Hora de entrada <span class="requerido">*</span>
+                        </label>
+                        <input type="time" id="hora-entrada" name="hora_entrada" required />
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="hora-salida">Hora estimada de salida</label>
+                        <input type="time" id="hora-salida" name="hora_salida" />
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="motivo">
+                        Motivo de la visita <span class="requerido">*</span>
+                    </label>
+                    <textarea id="motivo" name="motivo" rows="3"
+                        placeholder="Describa brevemente el motivo de su ingreso..." required minlength="10"
+                        maxlength="300"></textarea>
+                    <span class="texto-ayuda">Entre 10 y 300 caracteres.</span>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Autorización</legend>
+
+                <div class="campo-grupo">
+                    <label for="responsable">
+                        Nombre del responsable que autoriza <span class="requerido">*</span>
+                    </label>
+                    <input type="text" id="responsable" name="responsable" placeholder="Nombre del funcionario" required
+                        maxlength="100" />
+                </div>
+
+                <div class="campo-grupo">
+                    <label class="opcion-item">
+                        <input type="checkbox" name="acepta_registro" value="si" required />
+                        Acepto que mi ingreso quede registrado en el sistema de seguridad.
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="seccion-botones">
+                <button type="reset" class="btn btn-secundario">Limpiar</button>
+                <button type="submit" class="btn btn-primario">Registrar Ingreso</button>
+            </div>
+
+        </form>
+
+        <footer class="form-footer">
+            <p>Sistema de Seguridad · Todos los registros son confidenciales.</p>
+        </footer>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+/* ============================================================
+   LABORATORIO: Formularios HTML5
+   styles.css — Hoja de estilos compartida
+   ============================================================ */
+
+/* --- Variables CSS (colores, tipografía) --- */
+:root {
+  --color-primario: #1a3a5c;
+  --color-acento: #e8621a;
+  --color-fondo: #f4f7fb;
+  --color-blanco: #ffffff;
+  --color-texto: #2d2d2d;
+  --color-texto-suave: #5f6b7a;
+  --color-borde: #c9d4e0;
+  --color-exito: #1e7e34;
+  --color-error: #c0392b;
+  --color-exito-fondo: #d4edda;
+  --color-error-fondo: #fde8e6;
+  --radio-borde: 8px;
+  --sombra: 0 4px 16px rgba(0,0,0,0.10);
+  --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Reset básico --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Body general --- */
+body {
+  font-family: var(--fuente-principal);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* --- Cabecera del formulario --- */
+header.form-header {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  padding: 1.5rem 2rem;
+  border-radius: var(--radio-borde) var(--radio-borde) 0 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header.form-header .icono-header {
+  font-size: 2rem;
+}
+
+header.form-header h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+header.form-header p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 0.2rem;
+}
+
+/* --- Contenedor principal (tarjeta) --- */
+main.contenedor-formulario {
+  max-width: 750px;
+  margin: 0 auto;
+  background-color: var(--color-blanco);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+
+/* --- Formulario --- */
+form {
+  padding: 2rem;
+}
+
+/* --- Fieldset y Legend (agrupación semántica) --- */
+fieldset {
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+legend {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-primario);
+  padding: 0 0.6rem;
+  letter-spacing: 0.3px;
+}
+
+/* --- Grupos de campo (label + input + ayuda) --- */
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.campo-grupo:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Etiquetas --- */
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-texto);
+  margin-bottom: 0.35rem;
+}
+
+label .requerido {
+  color: var(--color-acento);
+  margin-left: 2px;
+}
+
+/* --- Inputs, selects, textarea --- */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  font-family: var(--fuente-principal);
+  font-size: 0.95rem;
+  color: var(--color-texto);
+  background-color: #fafcff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(26, 58, 92, 0.15);
+}
+
+/* Validación HTML5 en línea */
+input:valid:not(:placeholder-shown) {
+  border-color: var(--color-exito);
+}
+
+input:invalid:not(:placeholder-shown) {
+  border-color: var(--color-error);
+}
+
+/* --- Campos de ancho reducido --- */
+input.ancho-corto  { max-width: 180px; }
+input.ancho-medio  { max-width: 320px; }
+
+/* --- Texto de ayuda debajo del campo --- */
+.texto-ayuda {
+  font-size: 0.8rem;
+  color: var(--color-texto-suave);
+  margin-top: 0.3rem;
+}
+
+/* --- Fila de dos columnas --- */
+.fila-doble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* --- Radio y Checkbox --- */
+.opciones-grupo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.3rem;
+}
+
+.opcion-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.opcion-item input[type="radio"],
+.opcion-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primario);
+  cursor: pointer;
+}
+
+/* --- Botones --- */
+.seccion-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.7rem 1.8rem;
+  border: none;
+  border-radius: var(--radio-borde);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primario {
+  background-color: var(--color-acento);
+  color: var(--color-blanco);
+}
+
+.btn-primario:hover {
+  background-color: #c4511a;
+}
+
+.btn-secundario {
+  background-color: transparent;
+  color: var(--color-primario);
+  border: 2px solid var(--color-primario);
+}
+
+.btn-secundario:hover {
+  background-color: var(--color-fondo);
+}
+
+/* --- Footer del formulario --- */
+footer.form-footer {
+  background-color: var(--color-fondo);
+  padding: 1rem 2rem;
+  font-size: 0.8rem;
+  color: var(--color-texto-suave);
+  text-align: center;
+  border-top: 1px solid var(--color-borde);
+}
+
+/* --- RESPONSIVE: pantallas pequeñas --- */
+@media (max-width: 600px) {
+  form {
+    padding: 1.2rem;
+  }
+
+  .fila-doble {
+    grid-template-columns: 1fr;
+  }
+
+  header.form-header h1 {
+    font-size: 1.1rem;
+  }
+
+  .seccion-botones {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

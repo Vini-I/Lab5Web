@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzería El Horno – Pedido en Línea</title>
+    <link rel="stylesheet" href="/Lab5Web/CSS/styles.css" />
+    <style>
+        :root {
+            --color-primario: #8b1a1a;
+            --color-acento: #f5a623;
+        }
+
+        header.form-header {
+            background: linear-gradient(135deg, #8b1a1a, #c0392b);
+        }
+
+        .pizza-opciones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .pizza-card input[type="checkbox"] {
+            display: none;
+        }
+
+        .pizza-card label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 0.5rem;
+            border: 2px solid var(--color-borde);
+            border-radius: var(--radio-borde);
+            cursor: pointer;
+            text-align: center;
+            font-size: 0.85rem;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .pizza-card label .emoji {
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .pizza-card input:checked+label {
+            border-color: var(--color-acento);
+            background-color: #fff8ee;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="contenedor-formulario">
+
+        <header class="form-header">
+            <span class="icono-header" aria-hidden="true">🍕</span>
+            <div>
+                <h1>Pizzería El Horno – Pedido en Línea</h1>
+                <p>Realice su pedido y lo entregamos en 30–45 minutos.</p>
+            </div>
+        </header>
+
+        <form action="#" method="post">
+
+            <fieldset>
+                <legend>👤 Datos del cliente</legend>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="nombre-cliente">
+                            Nombre <span class="requerido">*</span>
+                        </label>
+                        <input type="text" id="nombre-cliente" name="nombre_cliente" placeholder="Ej. Laura" required
+                            maxlength="60" />
+                    </div>
+                    <div class="campo-grupo">
+                        <label for="tel-cliente">
+                            Teléfono <span class="requerido">*</span>
+                        </label>
+                        <input type="tel" id="tel-cliente" name="telefono" placeholder="8888-8888" required
+                            pattern="\d{4}-\d{4}" maxlength="9" />
+                        <span class="texto-ayuda">Formato: ####-####</span>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="correo-cliente">Correo electrónico (opcional)</label>
+                    <input type="email" id="correo-cliente" name="correo" placeholder="para enviar confirmación" />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>🛵 Tipo de servicio</legend>
+
+                <div class="campo-grupo">
+                    <label>Servicio deseado <span class="requerido">*</span></label>
+                    <div class="opciones-grupo">
+                        <label class="opcion-item">
+                            <input type="radio" name="tipo_servicio" value="delivery" required /> 🛵 Delivery
+                        </label>
+                        <label class="opcion-item">
+                            <input type="radio" name="tipo_servicio" value="recoger" /> 🏠 Recoger en local
+                        </label>
+                        <label class="opcion-item">
+                            <input type="radio" name="tipo_servicio" value="local" /> 🍽️ Consumir en local
+                        </label>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="direccion">Dirección de entrega</label>
+                    <textarea id="direccion" name="direccion" rows="2"
+                        placeholder="Ej. 100m norte del parque central, casa azul" maxlength="250"></textarea>
+                    <span class="texto-ayuda">Requerida solo si eligió Delivery.</span>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>🍕 Seleccione su(s) pizza(s)</legend>
+                <span class="texto-ayuda" style="display:block; margin-bottom:0.8rem;">
+                    Puede elegir más de una. <span class="requerido">*</span> (al menos una)
+                </span>
+
+                <div class="pizza-opciones">
+                    <div class="pizza-card">
+                        <input type="checkbox" id="p1" name="pizzas" value="margherita" />
+                        <label for="p1"><span class="emoji">🧀</span> Margherita<br>₡4,500</label>
+                    </div>
+                    <div class="pizza-card">
+                        <input type="checkbox" id="p2" name="pizzas" value="pepperoni" />
+                        <label for="p2"><span class="emoji">🍖</span> Pepperoni<br>₡5,200</label>
+                    </div>
+                    <div class="pizza-card">
+                        <input type="checkbox" id="p3" name="pizzas" value="hawaiana" />
+                        <label for="p3"><span class="emoji">🍍</span> Hawaiana<br>₡5,000</label>
+                    </div>
+                    <div class="pizza-card">
+                        <input type="checkbox" id="p4" name="pizzas" value="vegetal" />
+                        <label for="p4"><span class="emoji">🥦</span> Vegetal<br>₡4,800</label>
+                    </div>
+                    <div class="pizza-card">
+                        <input type="checkbox" id="p5" name="pizzas" value="bbq" />
+                        <label for="p5"><span class="emoji">🍗</span> BBQ Chicken<br>₡5,500</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>⚙️ Personalización</legend>
+
+                <div class="fila-doble">
+                    <div class="campo-grupo">
+                        <label for="tamanio">
+                            Tamaño <span class="requerido">*</span>
+                        </label>
+                        <select id="tamanio" name="tamanio" required>
+                            <option value="">-- Seleccione --</option>
+                            <option value="personal">Personal (6")</option>
+                            <option value="mediana">Mediana (10")</option>
+                            <option value="grande">Grande (14")</option>
+                            <option value="familiar">Familiar (18")</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="cantidad">
+                            Cantidad <span class="requerido">*</span>
+                        </label>
+                        <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="20" step="1" required
+                            class="ancho-corto" />
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label>Extras (seleccione los que desee)</label>
+                    <div class="opciones-grupo">
+                        <label class="opcion-item">
+                            <input type="checkbox" name="extras" value="orilla-queso" /> Orilla de queso (+₡500)
+                        </label>
+                        <label class="opcion-item">
+                            <input type="checkbox" name="extras" value="extra-queso" /> Extra queso (+₡400)
+                        </label>
+                        <label class="opcion-item">
+                            <input type="checkbox" name="extras" value="picante" /> Salsa picante
+                        </label>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="instrucciones">Instrucciones especiales</label>
+                    <textarea id="instrucciones" name="instrucciones" rows="2"
+                        placeholder="Ej. Sin cebolla, corte en 8 porciones..." maxlength="200"></textarea>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>💳 Método de pago</legend>
+
+                <div class="campo-grupo">
+                    <label>Pagar con <span class="requerido">*</span></label>
+                    <div class="opciones-grupo">
+                        <label class="opcion-item">
+                            <input type="radio" name="pago" value="efectivo" required /> 💵 Efectivo
+                        </label>
+                        <label class="opcion-item">
+                            <input type="radio" name="pago" value="tarjeta" /> 💳 Tarjeta (en el local/repartidor)
+                        </label>
+                        <label class="opcion-item">
+                            <input type="radio" name="pago" value="sinpe" /> 📱 SINPE Móvil
+                        </label>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="hora-entrega">Hora deseada de entrega / recogida</label>
+                    <input type="time" id="hora-entrega" name="hora_entrega" class="ancho-corto" min="10:00"
+                        max="22:00" />
+                    <span class="texto-ayuda">Horario: 10:00 a 22:00. Dejar vacío para lo antes posible.</span>
+                </div>
+            </fieldset>
+
+            <div class="seccion-botones">
+                <button type="reset" class="btn btn-secundario">Limpiar</button>
+                <button type="submit" class="btn btn-primario">Realizar pedido 🍕</button>
+            </div>
+
+        </form>
+
+        <footer class="form-footer">
+            <p>Pizzería El Horno · Tel: 2222-3333 · Horario: L–D 10am–10pm</p>
+        </footer>
+
+    </main>
+</body>
+
+</html>
