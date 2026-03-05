@@ -1,0 +1,139 @@
+<!-- FORMULARIO 5: AGREGAR TARJETA DE CRÉDITO COMO MEDIO DE PAGO EN TIENDA VIRTUAL -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Tarjeta de Crédito</title>
+</head>
+<body>
+    <main>
+        <h1>Agregar Tarjeta de Crédito</h1>
+        
+        <form action="/agregar-tarjeta" method="POST">
+            <fieldset>
+                <legend>Información de la Tarjeta</legend>
+
+                <div>
+                    <label for="titular-tarjeta">Titular de la Tarjeta:</label>
+                    <input type="text" id="titular-tarjeta" name="titular" required>
+                </div>
+
+                <div>
+                    <label for="numero-tarjeta-nueva">Número de Tarjeta:</label>
+                    <input type="text" id="numero-tarjeta-nueva" name="numero_tarjeta" 
+                           placeholder="1234 5678 9012 3456" 
+                           pattern="[0-9 ]{16,19}" required>
+                </div>
+
+                <div>
+                    <label for="fecha-vencimiento">Fecha de Vencimiento:</label>
+                    <input type="month" id="fecha-vencimiento" name="fecha_vencimiento" required>
+                </div>
+
+                <div>
+                    <label for="cvv-tarjeta">CVV (3 dígitos):</label>
+                    <input type="password" id="cvv-tarjeta" name="cvv" 
+                           placeholder="***" 
+                           pattern="[0-9]{3,4}" 
+                           maxlength="4" required>
+                </div>
+
+                <div>
+                    <label for="tipo-tarjeta">Tipo de Tarjeta:</label>
+                    <select id="tipo-tarjeta" name="tipo_tarjeta" required>
+                        <option value="">-- Selecciona tipo --</option>
+                        <option value="visa">Visa</option>
+                        <option value="mastercard">Mastercard</option>
+                        <option value="amex">American Express</option>
+                        <option value="diners">Diners Club</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Dirección de Facturación</legend>
+
+                <div>
+                    <label for="calle">Calle:</label>
+                    <input type="text" id="calle" name="calle" required>
+                </div>
+
+                <div>
+                    <label for="numero-calle">Número:</label>
+                    <input type="text" id="numero-calle" name="numero_calle" required>
+                </div>
+
+                <div>
+                    <label for="apartamento">Apartamento/Oficina (Opcional):</label>
+                    <input type="text" id="apartamento" name="apartamento">
+                </div>
+
+                <div>
+                    <label for="ciudad-tarjeta">Ciudad:</label>
+                    <input type="text" id="ciudad-tarjeta" name="ciudad" required>
+                </div>
+
+                <div>
+                    <label for="estado">Estado/Provincia:</label>
+                    <input type="text" id="estado" name="estado">
+                </div>
+
+                <div>
+                    <label for="codigo-postal-tarjeta">Código Postal:</label>
+                    <input type="text" id="codigo-postal-tarjeta" name="codigo_postal" required>
+                </div>
+
+                <div>
+                    <label for="pais-tarjeta">País:</label>
+                    <select id="pais-tarjeta" name="pais" required>
+                        <option value="">-- Selecciona país --</option>
+                        <option value="mexico">México</option>
+                        <option value="colombia">Colombia</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="españa">España</option>
+                        <option value="chile">Chile</option>
+                        <option value="perú">Perú</option>
+                        <option value="venezuela">Venezuela</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Preferencias</legend>
+
+                <div>
+                    <label for="principal">
+                        <input type="checkbox" id="principal" name="principal"> 
+                        Hacer esta mi tarjeta principal para futuras compras
+                    </label>
+                </div>
+
+                <div>
+                    <label for="recordar">
+                        <input type="checkbox" id="recordar" name="recordar" checked> 
+                        Recordar esta tarjeta para futuras compras
+                    </label>
+                </div>
+
+                <div>
+                    <label for="notificaciones">
+                        <input type="checkbox" id="notificaciones" name="notificaciones"> 
+                        Notificarme de compras realizadas con esta tarjeta
+                    </label>
+                </div>
+
+                <div>
+                    <label for="aceptar-terminos">
+                        <input type="checkbox" id="aceptar-terminos" name="aceptar_terminos" required> 
+                        Acepto los términos de seguridad de pago
+                    </label>
+                </div>
+            </fieldset>
+
+            <button type="submit">Guardar Tarjeta</button>
+            <button type="reset">Cancelar</button>
+        </form>
+    </main>
+</body>
+</html>

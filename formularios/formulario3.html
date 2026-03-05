@@ -1,0 +1,117 @@
+<!-- FORMULARIO 3: RESERVACIÓN DE HABITACIONES EN HOTEL -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservación de Habitación</title>
+</head>
+<body>
+    <main>
+        <h1>Reservación de Habitación</h1>
+        
+        <form action="/reservar-hotel" method="POST">
+            <fieldset>
+                <legend>Datos Personales</legend>
+
+                <div>
+                    <label for="nombre-huesped">Nombre del Huésped:</label>
+                    <input type="text" id="nombre-huesped" name="nombre_huesped" required>
+                </div>
+
+                <div>
+                    <label for="email-hotel">Correo Electrónico:</label>
+                    <input type="email" id="email-hotel" name="email" required>
+                </div>
+
+                <div>
+                    <label for="telefono-hotel">Teléfono:</label>
+                    <input type="tel" id="telefono-hotel" name="telefono" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Detalles de la Reservación</legend>
+
+                <div>
+                    <label for="fecha-entrada">Fecha de Entrada:</label>
+                    <input type="date" id="fecha-entrada" name="fecha_entrada" required>
+                </div>
+
+                <div>
+                    <label for="fecha-salida">Fecha de Salida:</label>
+                    <input type="date" id="fecha-salida" name="fecha_salida" required>
+                </div>
+
+                <div>
+                    <label for="num-huespedes">Número de Huéspedes:</label>
+                    <input type="number" id="num-huespedes" name="num_huespedes" min="1" max="10" value="1" required>
+                </div>
+
+                <div>
+                    <label for="cantidad-noches">Cantidad de Noches:</label>
+                    <input type="number" id="cantidad-noches" name="cantidad_noches" min="1" max="30" value="1" required>
+                </div>
+
+                <div>
+                    <label for="tipo-habitacion">Tipo de Habitación:</label>
+                    <select id="tipo-habitacion" name="tipo_habitacion" required>
+                        <option value="">-- Selecciona una habitación --</option>
+                        <option value="simple">Habitación Simple (1 cama) - $80/noche</option>
+                        <option value="doble">Habitación Doble (2 camas) - $120/noche</option>
+                        <option value="suite">Suite Deluxe - $180/noche</option>
+                        <option value="penthouse">Penthouse - $300/noche</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Servicios Adicionales</legend>
+
+                <div>
+                    <label for="desayuno">
+                        <input type="checkbox" id="desayuno" name="desayuno"> 
+                        Incluir Desayuno Buffet (+$15/noche)
+                    </label>
+                </div>
+
+                <div>
+                    <label for="gym">
+                        <input type="checkbox" id="gym" name="gym"> 
+                        Acceso a Gimnasio 24/7 (+$5/noche)
+                    </label>
+                </div>
+
+                <div>
+                    <label for="spa">
+                        <input type="checkbox" id="spa" name="spa"> 
+                        Acceso a Spa y Piscina (+$20/noche)
+                    </label>
+                </div>
+
+                <div>
+                    <label for="parking">
+                        <input type="checkbox" id="parking" name="parking"> 
+                        Estacionamiento Incluido (+$10/noche)
+                    </label>
+                </div>
+
+                <div>
+                    <label for="wifi">
+                        <input type="checkbox" id="wifi" name="wifi"> 
+                        WiFi Premium (+$3/noche)
+                    </label>
+                </div>
+
+                <div>
+                    <label for="observaciones">Observaciones Especiales:</label>
+                    <textarea id="observaciones" name="observaciones" rows="3"></textarea>
+                </div>
+            </fieldset>
+
+            <button type="submit">Confirmar Reservación</button>
+            <button type="reset">Limpiar Formulario</button>
+        </form>
+    </main>
+</body>
+</html>
